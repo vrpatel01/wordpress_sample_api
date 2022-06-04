@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+INSTALLED_APPS += ('wordpress_api',)
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,3 +123,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+WP_URL = "https://themegrill.com/blog/" # add WP REST API v1 to http://your-wordpress-app.com/ to work
+BLOG_POSTS_PER_PAGE = 3 # <number-of-blogs-to-display-per-page>
+
+WP_API_ALLOW_LANGUAGE = True        # Multilingual support
+
+WP_API_BLOG_CACHE_TIMEOUT = 60 * 60 * 24        # Page Cache
+

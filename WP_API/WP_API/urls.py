@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include,re_path
+
+from .views import home_view
+
+import wordpress_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home_view ,name = "home" )
 ]
+
+urlpatterns.append(re_path(r'^blog/', include('wordpress_api.urls'), name = "blog"))
+
+#urlpatterns.append(re_path(r'^feed/$', LatestEntriesFeed()))
+
